@@ -7,39 +7,46 @@
 //    |4.1 valores de cada categoria
 // 5 - atualizar interface
 // 6 - limpar campos de entrada
-<<<<<<< Updated upstream
-document.getElementById("adicionar").addEventListener("click", function () {
-  const valorInput = document.getElementById("valorReais");
-  console.log(valorInput.value);
-});
 
-=======
->>>>>>> Stashed changes
 const listaGastos = [
   ["Alimentação", 0],
   ["Transporte", 0],
-  ["Saúde", 0],
-  ["Educação", 0],
   ["Lazer", 0],
   ["Outros", 0],
 ];
 
-<<<<<<< Updated upstream
-document.getElementById("atividade").addEventListener("change", function () {
-  console.log(this.value);
-});
-=======
 document
-  .getElementById("adicionar", "atividade")
+  .getElementById("adicionarGasto", "atividade")
   .addEventListener("click", function () {
-    const valorInput = document.getElementById("valorReais");
+    const valorInput = document.getElementById("valorReais").value;
     const opcaoSelect = document.getElementById("atividade").value;
-    // console.log(valorInput.value, opcaoSelect.value);
+
     if (opcaoSelect === "alimentacao") {
-      listaGastos[0][1] += parseFloat(valorInput.value);
-      console.log(opcaoSelect, "A categoria é Alimentação", listaGastos);
-    } else {
-      console.log(opcaoSelect, "A categoria não é Alimentação");
+      listaGastos[0][1] += parseFloat(valorInput);
+      console.log("A categoria é Alimentação", listaGastos[0]);
+    } else if (opcaoSelect === "transporte") {
+      listaGastos[1][1] += parseFloat(valorInput);
+      console.log("A categoria é Transporte", listaGastos[1]);
+    } else if (opcaoSelect === "lazer") {
+      listaGastos[2][1] += parseFloat(valorInput);
+      console.log("A categoria é Lazer", listaGastos[2]);
+    } else if (opcaoSelect === "outros") {
+      listaGastos[3][1] += parseFloat(valorInput);
+      console.log("A categoria é Outros", listaGastos[3]);
     }
+    const textoA = document.getElementById("a");
+    textoA.innerText = `Alimentação: R$ ${listaGastos[0][1].toFixed(2)}`;
+    const textoB = document.getElementById("b");
+    textoB.innerText = `Transporte: R$ ${listaGastos[1][1].toFixed(2)}`;
+    const textoC = document.getElementById("c");
+    textoC.innerText = `Lazer: R$ ${listaGastos[2][1].toFixed(2)}`;
+    const textoD = document.getElementById("d");
+    textoD.innerText = `Outros: R$ ${listaGastos[3][1].toFixed(2)}`;
+    const totalGastos =
+      listaGastos[0][1] +
+      listaGastos[1][1] +
+      listaGastos[2][1] +
+      listaGastos[3][1];
+    const totalTexto = document.getElementById("e");
+    totalTexto.innerText = `Total: R$ ${totalGastos.toFixed(2)}`;
   });
->>>>>>> Stashed changes
